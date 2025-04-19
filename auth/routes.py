@@ -5,6 +5,9 @@ from auth.utils import hash_password, verify_password
 
 router = APIRouter()
 
+@router.get("/")
+async def root():
+    return {"message": "API CREATED BY D (TEAM Techvocates)"}
 
 
 @router.post("/register")
