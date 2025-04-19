@@ -9,6 +9,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from auth.routes import router as auth_router  # Assuming auth.routes contains your router
+from history import router as chat_router
 
 app = FastAPI()
 
@@ -28,3 +29,4 @@ app.add_middleware(
 
 # Include the router for authentication
 app.include_router(auth_router, prefix="/auth")
+app.include_router(chat_router, prefix="/chat")
