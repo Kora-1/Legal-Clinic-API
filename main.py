@@ -13,6 +13,7 @@ from history import router as chat_router
 
 app = FastAPI()
 
+
 # CORS middleware setup
 origins = [
     "*"
@@ -26,6 +27,9 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
+@app.get("/")
+async def root():
+    return {"message": "API CREATED BY D (TEAM Techvocates)"}
 
 # Include the router for authentication
 app.include_router(auth_router, prefix="/auth")

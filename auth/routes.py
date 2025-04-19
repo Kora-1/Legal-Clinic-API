@@ -5,11 +5,6 @@ from auth.utils import hash_password, verify_password
 
 router = APIRouter()
 
-@router.get("/")
-async def root():
-    return {"message": "API CREATED BY D (TEAM Techvocates)"}
-
-
 @router.post("/register")
 def register(user: User):
     existing_user = users_collection.find_one({"username": user.username})
